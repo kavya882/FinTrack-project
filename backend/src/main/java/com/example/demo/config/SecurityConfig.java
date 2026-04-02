@@ -76,8 +76,8 @@ public class SecurityConfig {
 
         CorsConfiguration configuration = new CorsConfiguration();
 
-        // Allow both local frontend ports (5173 and 4000)
-        configuration.setAllowedOrigins(List.of("http://localhost:5173", "http://localhost:4000"));
+        // Allow requests from all origins (useful for dynamic Vercel URLs)
+        configuration.setAllowedOriginPatterns(List.of("*"));
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);

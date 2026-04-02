@@ -30,8 +30,7 @@ function Login() {
 
       localStorage.setItem("token", token);
 
-      alert("Login successful");
-
+      // Removed blocking alert
       navigate("/dashboard");
 
     } catch (error) {

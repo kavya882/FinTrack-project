@@ -27,8 +27,7 @@ function Register() {
 
       await api.post("/auth/register", formData);
 
-      alert("Registration successful. Please login.");
-
+      // Removed blocking alert
       navigate("/login");
 
     } catch (error) {

@@ -22,6 +22,7 @@ function Navbar() {
           <Link to="/dashboard">Dashboard</Link>
           <Link to="/transactions">Transactions</Link>
           <Link to="/budgets">Budgets</Link>
+          <Link to="/settings">Settings</Link>
         </div>
       </div>
 

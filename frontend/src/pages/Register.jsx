@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import api from "../api/axiosConfig";
+import { User, Mail, Lock } from "lucide-react";
 
 function Register() {
 
@@ -44,47 +45,55 @@ function Register() {
 
   return (
     <div className="auth-container">
+      <div className="auth-card">
+        <h2>Create Account</h2>
+        <p className="subtitle">Join us to start managing your assets</p>
 
-      <h2>Register</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="input-wrapper">
+            <User size={20} />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-      <form onSubmit={handleSubmit}>
+          <div className="input-wrapper">
+            <Mail size={20} />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email address"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
-          onChange={handleChange}
-          required
-        />
+          <div className="input-wrapper">
+            <Lock size={20} />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
+          <button type="submit">Sign Up</button>
+        </form>
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={formData.password}
-          onChange={handleChange}
-          required
-        />
-
-        <button type="submit">Register</button>
-
-      </form>
-
-      <p>
-        Already have an account?
-        <button onClick={() => navigate("/login")}>Login</button>
-      </p>
-
+        <div className="auth-link">
+          Already have an account? 
+          <span onClick={() => navigate("/login")}>Sign in</span>
+        </div>
+      </div>
     </div>
   );
 }

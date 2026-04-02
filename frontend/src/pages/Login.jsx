@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import api from "../api/axiosConfig";
+import { User, Lock } from "lucide-react";
 
 function Login() {
 
@@ -47,47 +48,43 @@ function Login() {
 
   return (
     <div className="auth-container">
-
       <div className="auth-card">
-
-        <h2>Login</h2>
+        <h2>Welcome Back</h2>
+        <p className="subtitle">Sign in to manage your finances</p>
 
         <form onSubmit={handleSubmit}>
+          <div className="input-wrapper">
+            <User size={20} />
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={loginData.username}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <input
-            type="text"
-            name="username"
-            placeholder="Username"
-            value={loginData.username}
-            onChange={handleChange}
-            required
-          />
+          <div className="input-wrapper">
+            <Lock size={20} />
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={loginData.password}
+              onChange={handleChange}
+              required
+            />
+          </div>
 
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={loginData.password}
-            onChange={handleChange}
-            required
-          />
-
-          <button type="submit">Login</button>
-
+          <button type="submit">Sign In</button>
         </form>
 
-        <p style={{textAlign:"center", marginTop:"12px"}}>
-          Don't have an account?{" "}
-          <span
-            style={{color:"#2563eb", cursor:"pointer", fontWeight:"500"}}
-            onClick={() => navigate("/register")}
-          >
-            Register
-          </span>
-        </p>
-
+        <div className="auth-link">
+          Don't have an account? 
+          <span onClick={() => navigate("/register")}>Create one</span>
+        </div>
       </div>
-
     </div>
   );
 }
